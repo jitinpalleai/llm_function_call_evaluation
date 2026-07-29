@@ -1,0 +1,85 @@
+{
+  "tools": [
+    {
+      "name": "search_email",
+      "description": "Searches email messages using a query",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search terms used to find matching emails"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "create_calendar_event",
+      "description": "Creates a calendar event",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the calendar event"
+          },
+          "start_time": {
+            "type": "string",
+            "description": "Event start time in ISO 8601 format"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Event end time in ISO 8601 format"
+          },
+          "attendees": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Email addresses of attendees"
+          }
+        },
+        "required": [
+          "title",
+          "start_time",
+          "end_time"
+        ]
+      }
+    },
+    {
+      "name": "find_location",
+      "description": "Finds a location using a search query",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Location or business to search for"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "search_drive",
+      "description": "Searches files in cloud storage",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "file_name": {
+            "type": "string",
+            "description": "Name or partial name of the file"
+          }
+        },
+        "required": [
+          "file_name"
+        ]
+      }
+    }
+  ]
+}

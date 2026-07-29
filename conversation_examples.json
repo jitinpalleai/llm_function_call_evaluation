@@ -1,0 +1,149 @@
+{
+  "conversations": [
+    {
+      "id": "calendar_001",
+      "user_goal": "Schedule a project review meeting for tomorrow at 2 PM",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Schedule a project review meeting with priya@example.com tomorrow at 2 PM for one hour."
+        },
+        {
+          "role": "assistant",
+          "tool_call": {
+            "name": "create_calendar_event",
+            "arguments": {
+              "title": "Project Review Meeting",
+              "start_time": "2026-07-30T14:00:00",
+              "end_time": "2026-07-30T15:00:00",
+              "attendees": [
+                "priya@example.com"
+              ]
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "name": "create_calendar_event",
+          "content": {
+            "status": "success",
+            "event_id": "evt_1001"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": "The project review meeting has been scheduled for tomorrow from 2 PM to 3 PM with priya@example.com."
+        }
+      ]
+    },
+    {
+      "id": "email_001",
+      "user_goal": "Find the latest invoice email",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Find the latest invoice email from Sunrise Supplies."
+        },
+        {
+          "role": "assistant",
+          "tool_call": {
+            "name": "search_email",
+            "arguments": {
+              "query": "from Sunrise Supplies invoice"
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "name": "search_email",
+          "content": {
+            "status": "success",
+            "results": [
+              {
+                "subject": "Invoice July 2026",
+                "sender": "billing@sunrisesupplies.com",
+                "date": "2026-07-28"
+              }
+            ]
+          }
+        },
+        {
+          "role": "assistant",
+          "content": "The latest invoice email is Invoice July 2026 from billing@sunrisesupplies.com, received on July 28, 2026."
+        }
+      ]
+    },
+    {
+      "id": "drive_001",
+      "user_goal": "Find a project document",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Find the latest data migration plan in my drive."
+        },
+        {
+          "role": "assistant",
+          "tool_call": {
+            "name": "search_drive",
+            "arguments": {
+              "file_name": "data migration plan"
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "name": "search_drive",
+          "content": {
+            "status": "success",
+            "results": [
+              {
+                "name": "Data Migration Plan Final",
+                "modified_date": "2026-07-25"
+              }
+            ]
+          }
+        },
+        {
+          "role": "assistant",
+          "content": "I found Data Migration Plan Final, last modified on July 25, 2026."
+        }
+      ]
+    },
+    {
+      "id": "location_001",
+      "user_goal": "Find a nearby meeting location",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Find a coffee shop near Union Station in Toronto."
+        },
+        {
+          "role": "assistant",
+          "tool_call": {
+            "name": "find_location",
+            "arguments": {
+              "query": "coffee shop near Union Station Toronto"
+            }
+          }
+        },
+        {
+          "role": "tool",
+          "name": "find_location",
+          "content": {
+            "status": "success",
+            "results": [
+              {
+                "name": "Station Coffee",
+                "address": "Toronto, Ontario"
+              }
+            ]
+          }
+        },
+        {
+          "role": "assistant",
+          "content": "I found Station Coffee near Union Station in Toronto."
+        }
+      ]
+    }
+  ]
+}
